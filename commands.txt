@@ -1,0 +1,6 @@
+mongo : this command basically takes you inside mongodb , this can have multiple databases.
+
+use school : this command is to create the database if db is not already existed . and if existed then it will switch you to that database.
+
+db.createCollection("students") : this command is to create a collection in school db named as students.
+
