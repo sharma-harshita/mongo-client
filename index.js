@@ -92,6 +92,25 @@
 
 // Updating the document
 
+// const mongoClient = require("mongodb").MongoClient;
+
+// const mongoUrl = "mongodb://localhost:27017";
+
+// mongoClient.connect(mongoUrl,(err, suc)=>{  //mongo command
+//     if (err) console.log(err);
+//     const actualDb = suc.db("school");        //use test
+//     let query = {roll : 121};
+//     let newData = {name : "Rohan"}
+//     actualDb.collection("students").updateOne(query,{$set:newData},(err, result)=>{
+//         if (err) console.log(err);
+//         console.log(result);
+//     })
+// })
+
+
+
+// deleting the documents
+
 const mongoClient = require("mongodb").MongoClient;
 
 const mongoUrl = "mongodb://localhost:27017";
@@ -99,9 +118,13 @@ const mongoUrl = "mongodb://localhost:27017";
 mongoClient.connect(mongoUrl,(err, suc)=>{  //mongo command
     if (err) console.log(err);
     const actualDb = suc.db("school");        //use test
-    let query = {roll : 121};
-    let newData = {name : "Rohan"}
-    actualDb.collection("students").updateOne(query,{$set:newData},(err, result)=>{
+    // let query = {roll : 121};
+    // actualDb.collection("students").deleteOne(query,(err, result)=>{
+    //     if (err) console.log(err);
+    //     console.log(result);
+    // })
+    let newQuery = {roll : {$lt:200}};
+    actualDb.collection("students").deleteMany(newQuery,(err, result)=>{
         if (err) console.log(err);
         console.log(result);
     })
